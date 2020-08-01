@@ -10,22 +10,13 @@ public class BinaryPrinter {
 
 	public static void main(String[] args) {
 		BinaryPrinter print = new BinaryPrinter();
-		//print.printByteBinary(4);
+		print.printByteBinary(00000001);
 	}
 
 	public void printByteBinary(byte b) {
 		//8
-		String binary = "";
-		
-		while(b != 0) {
-		if (b % 2 != 0) {
-			binary += '1';
-		} else {
-			binary += '0';
-		}
-		
-		System.out.println(binary);
-		}
+		String byteStr = "";
+		System.out.println(convert(4));
 	}
 
 	public void printShortBinary(short s) {
@@ -38,5 +29,22 @@ public class BinaryPrinter {
 
 	public void printLongBinary(long l) {
 		// 64
+	}
+	
+	public String convert(int n) {
+		String biStr = "";
+		
+		do {
+			int quotient = n >>> 1;
+			
+			if (n % 2 != 0) {
+				biStr += '1';
+			} else {
+				biStr += '0';
+			}
+			
+			n = quotient;
+		} while (n != 0);
+		return biStr;
 	}
 }

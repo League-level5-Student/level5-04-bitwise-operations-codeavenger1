@@ -10,41 +10,100 @@ public class BinaryPrinter {
 
 	public static void main(String[] args) {
 		BinaryPrinter print = new BinaryPrinter();
-		print.printByteBinary(00000001);
+		print.printByteBinary((byte) 8);
+		print.printShortBinary((short) 17);	
+		print.printIntBinary((int) 30);
+		print.printLongBinary((long) 64);
 	}
 
 	public void printByteBinary(byte b) {
 		//8
 		String byteStr = "";
-		System.out.println(convert(4));
+		String output = "";
+		do {
+			int quotient = b >>> 1;
+			
+			if (b % 2 != 0) {
+				byteStr += '1';
+			} else {
+				byteStr += '0';
+			}
+			
+			b = (byte) quotient;
+			
+			
+			
+		} while (b != 0);
+		for (int i = byteStr.length() -1; i >= 0; i--) {
+				output = output + byteStr.charAt(i);
+			}
+		System.out.println(output);
 	}
+		
+	
 
 	public void printShortBinary(short s) {
 		// 16
+		String shortStr = "";
+		String output = "";
+		do {
+			int quotient = s >>> 1;
+			
+			if (s % 2 != 0) {
+				shortStr += '1';
+			} else {
+				shortStr += '0';
+			}
+			
+			s = (short) quotient;
+		} while (s != 0);
+		for (int i = shortStr.length() -1; i >= 0; i--) {
+			output = output + shortStr.charAt(i);
+		}
+	System.out.println(output);
 	}
+	
 
 	public void printIntBinary(int i) {
 		// 32
+		String intStr = "";
+		String output = "";
+		do {
+			int quotient = i >>> 1;
+			
+			if (i % 2 != 0) {
+				intStr += '1';
+			} else {
+				intStr += '0';
+			}
+			
+			i = (int) quotient;
+		} while (i != 0);
+		for (int j = intStr.length() -1; j >= 0; j--) {
+			output = output + intStr.charAt(j);
+		}
+	System.out.println(output);
 	}
 
 	public void printLongBinary(long l) {
 		// 64
-	}
-	
-	public String convert(int n) {
-		String biStr = "";
-		
+		String longStr = "";
+		String output = "";
 		do {
-			int quotient = n >>> 1;
+			long quotient = l >>> 1;
 			
-			if (n % 2 != 0) {
-				biStr += '1';
+			if (l % 2 != 0) {
+				longStr += '1';
 			} else {
-				biStr += '0';
+				longStr += '0';
 			}
 			
-			n = quotient;
-		} while (n != 0);
-		return biStr;
+			l = quotient;
+		} while (l != 0);
+		for (int i = longStr.length() -1; i >= 0; i--) {
+			output = output + longStr.charAt(i);
+		}
+	System.out.println(output);
+	
 	}
-}
+	}
